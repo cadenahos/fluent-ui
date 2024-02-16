@@ -1,27 +1,11 @@
 import React from "react";
 import { CommandBar } from "@fluentui/react";
 import { initializeIcons } from "@uifabric/icons";
+import { Link, useNavigate } from "react-router-dom";
+import { Link as FluentLink } from "@fluentui/react";
 
 // Initialize icons in case you haven't done it yet
 initializeIcons();
-
-const items = [
-  {
-    key: "companyIcon",
-    iconProps: { iconName: "BuildQueue" }, // Replace with your company icon
-    onClick: () => console.log("Company icon clicked"),
-  },
-  {
-    key: "option1",
-    text: "Option 1",
-    onClick: () => console.log("Option 1 clicked"),
-  },
-  {
-    key: "option2",
-    text: "Option 2",
-    onClick: () => console.log("Option 2 clicked"),
-  },
-];
 
 const farItems = (setIsModalOpen) => [
   {
@@ -33,6 +17,29 @@ const farItems = (setIsModalOpen) => [
 ];
 
 const Navbar = ({ setIsModalOpen }) => {
+  const navigate = useNavigate();
+  const items = [
+    {
+      key: "companyIcon",
+      iconProps: { iconName: "BuildQueue" }, // Replace with your company icon
+      onClick: () => console.log("Company icon clicked"),
+    },
+    {
+      key: "home",
+      text: "Home",
+      iconProps: { iconName: "Home" },
+      // Use Link component for navigation
+      onClick: () => navigate("/"),
+    },
+    {
+      key: "about",
+      text: "About",
+      iconProps: { iconName: "Info" },
+      // Use Link component for navigation
+      onClick: () => navigate("/about"),
+    },
+  ];
+
   return (
     <div>
       <CommandBar

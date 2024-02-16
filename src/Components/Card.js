@@ -6,6 +6,7 @@ import {
   Caption1,
   Button,
   shorthands,
+  tokens,
 } from "@fluentui/react-components";
 import { ArrowReplyRegular, ShareRegular } from "@fluentui/react-icons";
 import {
@@ -24,10 +25,10 @@ const resolveAsset = (asset) => {
 
 const useStyles = makeStyles({
   card: {
-    ...shorthands.margin("auto"),
+    ...shorthands.margin("5px"),
+    ...shorthands.border("2px", "solid", tokens.colorPaletteTealBackground2),
     width: "720px",
     maxWidth: "100%",
-    ...shorthands.borderBottom("4px"),
   },
 });
 

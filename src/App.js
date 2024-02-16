@@ -1,37 +1,21 @@
 import React, { useState } from "react";
-import MyCard from "./Components/Card";
-import LoginModal from "./Components/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
 import Navbar from "./Components/Navbar";
-import { Stack } from "@fluentui/react";
-import { MyGrid } from "./Components/Grid";
+import LoginModal from "./Components/Login";
 
+// import Footer from "./Footer";
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const gridItems = Array(2).fill(0); // Replace 6 with the number of items you want
-
   return (
-    <div className="App">
+    <Router>
       <Navbar setIsModalOpen={setIsModalOpen} />
-      <Stack horizontal styles={{ root: { width: "100%" } }}>
-        <Stack.Item
-          styles={{
-            root: {
-              width: "50%",
-              height: "100vh",
-              overflow: "auto",
-            },
-          }}
-        >
-          {gridItems.map((_, index) => (
-            <MyCard key={index} />
-          ))}
-        </Stack.Item>
-        <Stack.Item styles={{ root: { width: "50%" } }}>
-          <MyGrid />
-        </Stack.Item>
-      </Stack>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<div>about</div>} />
+      </Routes>
       <LoginModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-    </div>
+    </Router>
   );
 }
 
