@@ -3,7 +3,6 @@ import MyCard from "./Components/Card";
 import LoginModal from "./Components/Login";
 import Navbar from "./Components/Navbar";
 import { Stack } from "@fluentui/react";
-import { Text } from "@fluentui/react-components";
 import { MyGrid } from "./Components/Grid";
 
 function App() {

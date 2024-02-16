@@ -9,7 +9,6 @@ import {
   DeleteRegular,
 } from "@fluentui/react-icons";
 import {
-  PresenceBadgeStatus,
   Avatar,
   DataGridBody,
   DataGridRow,
@@ -18,11 +17,8 @@ import {
   DataGridHeaderCell,
   DataGridCell,
   TableCellLayout,
-  TableColumnDefinition,
   createTableColumn,
   Button,
-  TableColumnId,
-  DataGridCellFocusMode,
 } from "@fluentui/react-components";
 
 const items = [

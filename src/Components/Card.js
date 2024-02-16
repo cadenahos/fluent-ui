@@ -40,7 +40,7 @@ const MyCard = () => {
         image={
           <img
             src={resolveAsset("avatar_elvia.svg")}
-            alt="Elvia Atkins avatar picture"
+            alt="Elvia Atkins avatar "
           />
         }
         header={
