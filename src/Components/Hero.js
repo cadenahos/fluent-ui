@@ -9,21 +9,19 @@ const useClasses = makeStyles({
     alignItems: "center",
   },
   textContainer: {
-    backgroundColor: tokens.colorBrandBackground2,
-    borderRadius: "10px",
     paddingLeft: tokens.spacingVerticalS,
     paddingRight: tokens.spacingVerticalS,
   },
   title: {
     fontSize: "3em",
     fontWeight: "bold",
-    color: "black",
+    color: tokens.colorNeutralForeground2BrandHover,
     paddingBottom: tokens.spacingVerticalS,
     paddingTop: tokens.spacingVerticalS,
   },
   description: {
     fontSize: "1.5em",
-    color: "black",
+    color: tokens.colorNeutralForeground2BrandHover,
     paddingBottom: tokens.spacingVerticalS,
     paddingTop: tokens.spacingVerticalS,
   },

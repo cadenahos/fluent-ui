@@ -1,8 +1,7 @@
 import React from "react";
 import { CommandBar } from "@fluentui/react";
 import { initializeIcons } from "@uifabric/icons";
-import { Link, useNavigate } from "react-router-dom";
-import { Link as FluentLink } from "@fluentui/react";
+import { useNavigate } from "react-router-dom";
 
 // Initialize icons in case you haven't done it yet
 initializeIcons();
