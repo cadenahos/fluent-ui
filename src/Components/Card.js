@@ -26,7 +26,7 @@ const resolveAsset = (asset) => {
 const useStyles = makeStyles({
   card: {
     ...shorthands.margin("5px"),
-    ...shorthands.border("2px", "solid", tokens.colorPaletteTealBackground2),
+    // ...shorthands.border("2px", "solid", tokens.colorPaletteTealBackground2),
     width: "720px",
     maxWidth: "100%",
   },

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { FluentProvider, teamsDarkTheme } from "@fluentui/react-components";
+import { FluentProvider, teamsLightTheme } from "@fluentui/react-components";
 // const exampleDesign = {
 //   10: "#010404",
 //   20: "#0C1C1C",
@@ -27,7 +27,7 @@ import { FluentProvider, teamsDarkTheme } from "@fluentui/react-components";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <FluentProvider theme={teamsDarkTheme}>
+  <FluentProvider theme={teamsLightTheme}>
     <App />
   </FluentProvider>
 );

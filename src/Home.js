@@ -1,7 +1,8 @@
 import React from "react";
 import MyCard from "./Components/Card";
-import { Stack } from "@fluentui/react";
+import { Stack, Text } from "@fluentui/react";
 import { makeStyles, shorthands } from "@fluentui/react-components";
+import Hero from "./Components/Hero";
 const useStyles = makeStyles({
   carrouselStack: {
     width: "100vh",
@@ -14,10 +15,11 @@ const useStyles = makeStyles({
 });
 function Home() {
   const styles = useStyles();
-  const gridItems = Array(6).fill(0); // Replace 6 with the number of items you want
+  const gridItems = Array(4).fill(0); // Replace 6 with the number of items you want
 
   return (
     <div className="App">
+      <Hero />
       <Stack horizontal wrap>
         {gridItems.map((_, index) => (
           <Stack.Item key={index} className={styles.carouselItems}>
