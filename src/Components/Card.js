@@ -10,18 +10,13 @@ import {
   Image,
 } from "@fluentui/react-components";
 import { ArrowReplyRegular, ShareRegular } from "@fluentui/react-icons";
+import { PrimaryButton } from "@fluentui/react";
 import {
   Card,
   CardFooter,
   CardHeader,
   CardPreview,
 } from "@fluentui/react-components";
-
-// const resolveAsset = (asset) => {
-//   const ASSET_URL = "https://images.pexels.com/photos/";
-
-//   return `${ASSET_URL}${asset}`;
-// };
 
 const useStyles = makeStyles({
   card: {
@@ -56,8 +51,9 @@ const MyCard = () => {
       </CardPreview>
 
       <CardFooter>
-        <Button icon={<ArrowReplyRegular fontSize={16} />}>Reply</Button>
-        <Button icon={<ShareRegular fontSize={16} />}>Share</Button>
+        <PrimaryButton icon={<ArrowReplyRegular fontSize={16} />}>
+          Page
+        </PrimaryButton>
       </CardFooter>
     </Card>
   );

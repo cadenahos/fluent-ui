@@ -1,9 +1,6 @@
 import React from "react";
 import { Text, List, Stack, PrimaryButton, TextField } from "@fluentui/react";
 import {
-  Field,
-  Input,
-  Button,
   makeStyles,
   shorthands,
   tokens,
@@ -11,6 +8,9 @@ import {
 } from "@fluentui/react-components";
 const useClasses = makeStyles({
   container: {
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
     width: "100vh",
     height: "100vh",
   },
@@ -19,9 +19,10 @@ const useClasses = makeStyles({
     width: "600px",
     ...shorthands.padding(tokens.spacingL),
   },
-  button: {
+  buttonx: {
     ...shorthands.margin(tokens.spacingVerticalM),
     width: "60px",
+    marginTop: "20px",
   },
 });
 const About = () => {
@@ -46,13 +47,7 @@ const About = () => {
           <TextField label="Name"></TextField>
           <TextField label="Message" multiline rows={3}></TextField>
           <TextField label="Email" type="email"></TextField>
-          <Divider />
-          <PrimaryButton
-            className={classes.button}
-            shape="rounded"
-            appearance="primary"
-            size="bigger"
-          >
+          <PrimaryButton className={classes.buttonx} size="bigger">
             Submit
           </PrimaryButton>
         </Stack>

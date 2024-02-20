@@ -6,7 +6,6 @@ import {
   DefaultButton,
   TextField,
 } from "@fluentui/react";
-
 export default function LoginModal({ setIsModalOpen, isModalOpen }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

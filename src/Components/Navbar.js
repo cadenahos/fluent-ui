@@ -21,14 +21,14 @@ const Navbar = ({ setIsModalOpen }) => {
     {
       key: "companyIcon",
       iconProps: { iconName: "BuildQueue" }, // Replace with your company icon
-      onClick: () => console.log("Company icon clicked"),
+      onClick: () => navigate("/"),
     },
     {
       key: "home",
       text: "Home",
       iconProps: { iconName: "Home" },
       // Use Link component for navigation
-      onClick: () => navigate("/"),
+      onClick: () => navigate("/dashboard"),
     },
     {
       key: "about",

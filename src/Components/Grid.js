@@ -1,163 +1,141 @@
 import * as React from "react";
 import {
-  FolderRegular,
-  EditRegular,
-  OpenRegular,
-  DocumentRegular,
-  DocumentPdfRegular,
-  VideoRegular,
-  DeleteRegular,
-} from "@fluentui/react-icons";
-import {
-  Avatar,
-  DataGridBody,
-  DataGridRow,
-  DataGrid,
-  DataGridHeader,
-  DataGridHeaderCell,
-  DataGridCell,
-  TableCellLayout,
-  createTableColumn,
-  Button,
-} from "@fluentui/react-components";
+  DetailsList,
+  IconButton,
+  Image,
+  PrimaryButton,
+  ImageFit,
+} from "@fluentui/react";
 
-const items = [
-  {
-    file: { label: "Meeting notes", icon: <DocumentRegular /> },
-    author: { label: "Max Mustermann", status: "available" },
-    lastUpdated: { label: "7h ago", timestamp: 1 },
+// Sample data
+const items = Array.from({ length: 50 }, (_, i) => ({
+  key: (i + 1).toString(),
+  accountNumber: (123456 + i).toString(),
+  accountType: i % 2 === 0 ? "Checking" : "Savings",
+  balance: 1000 * (i + 1),
+  author: {
+    name: `Author ${i + 1}`,
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsnZD5qcEvUKP03lDIsUNwDicNqY2ciJAOqkGbLRGs3YnhTYkDvL0qumwh5ptuMEYt_5g&usqp=CAU",
   },
-  {
-    file: { label: "Thursday presentation", icon: <FolderRegular /> },
-    author: { label: "Erika Mustermann", status: "busy" },
-    lastUpdated: { label: "Yesterday at 1:45 PM", timestamp: 2 },
-  },
-  {
-    file: { label: "Training recording", icon: <VideoRegular /> },
-    author: { label: "John Doe", status: "away" },
-    lastUpdated: { label: "Yesterday at 1:45 PM", timestamp: 2 },
-  },
-  {
-    file: { label: "Purchase order", icon: <DocumentPdfRegular /> },
-    author: { label: "Jane Doe", status: "offline" },
-    lastUpdated: { label: "Tue at 9:30 AM", timestamp: 3 },
-  },
-];
+}));
 
+// Columns definition
 const columns = [
-  createTableColumn({
-    columnId: "file",
-    compare: (a, b) => {
-      return a.file.label.localeCompare(b.file.label);
-    },
-    renderHeaderCell: () => {
-      return "File";
-    },
-    renderCell: (item) => {
-      return (
-        <TableCellLayout media={item.file.icon}>
-          {item.file.label}
-        </TableCellLayout>
-      );
-    },
-  }),
-  createTableColumn({
-    columnId: "author",
-    compare: (a, b) => {
-      return a.author.label.localeCompare(b.author.label);
-    },
-    renderHeaderCell: () => {
-      return "Author";
-    },
-    renderCell: (item) => {
-      return (
-        <TableCellLayout
-          media={
-            <Avatar
-              aria-label={item.author.label}
-              name={item.author.label}
-              badge={{ status: item.author.status }}
-            />
-          }
-        >
-          {item.author.label}
-        </TableCellLayout>
-      );
-    },
-  }),
-  createTableColumn({
-    columnId: "singleAction",
-    renderHeaderCell: () => {
-      return "Single action";
-    },
-    renderCell: () => {
-      return <Button icon={<OpenRegular />}>Open</Button>;
-    },
-  }),
-  createTableColumn({
-    columnId: "actions",
-    renderHeaderCell: () => {
-      return "Actions";
-    },
-    renderCell: () => {
-      return (
-        <>
-          <Button aria-label="Edit" icon={<EditRegular />} />
-          <Button aria-label="Delete" icon={<DeleteRegular />} />
-        </>
-      );
-    },
-  }),
+  {
+    key: "column1",
+    name: "Account Number",
+    fieldName: "accountNumber",
+    minWidth: 100,
+    maxWidth: 200,
+    isResizable: true,
+  },
+  {
+    key: "column2",
+    name: "Account Type",
+    fieldName: "accountType",
+    minWidth: 100,
+    maxWidth: 200,
+    isResizable: true,
+  },
+  {
+    key: "column3",
+    name: "Balance",
+    fieldName: "balance",
+    minWidth: 100,
+    maxWidth: 200,
+    isResizable: true,
+  },
+  {
+    key: "column4",
+    name: "Author",
+    fieldName: "author",
+    minWidth: 100,
+    maxWidth: 200,
+    isResizable: true,
+    onRender: (item) => (
+      <>
+        <Image
+          src={item.author.imageUrl}
+          width={50}
+          height={50}
+          imageFit={ImageFit.cover}
+        />
+        <span>{item.author.name}</span>
+      </>
+    ),
+  },
+  {
+    key: "column5",
+    name: "Actions",
+    fieldName: "actions",
+    minWidth: 100,
+    maxWidth: 200,
+    isResizable: true,
+    onRender: (item) => (
+      <>
+        <IconButton
+          iconProps={{ iconName: "Edit" }}
+          title="Edit"
+          ariaLabel="Edit"
+          onClick={() => handleEdit(item)}
+        />
+        <IconButton
+          iconProps={{ iconName: "Delete" }}
+          title="Delete"
+          ariaLabel="Delete"
+          onClick={() => handleDelete(item)}
+        />
+      </>
+    ),
+  },
+  // Add more columns as needed
 ];
 
-const getCellFocusMode = (columnId) => {
-  switch (columnId) {
-    case "singleAction":
-      return "none";
-    case "actions":
-      return "group";
-    default:
-      return "cell";
-  }
+const handleEdit = (item) => {
+  // Handle edit action
+  console.log("Edit", item);
 };
 
-export const MyGrid = () => {
+const handleDelete = (item) => {
+  // Handle delete action
+  console.log("Delete", item);
+};
+
+const DataGrid = () => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const itemsPerPage = 7;
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+
+  const handlePrev = () => {
+    setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
   return (
-    <DataGrid
-      items={items}
-      columns={columns}
-      sortable
-      selectionMode="multiselect"
-      getRowId={(item) => item.file.label}
-      onSelectionChange={(e, data) => console.log(data)}
-    >
-      <DataGridHeader>
-        <DataGridRow
-          selectionCell={{
-            checkboxIndicator: { "aria-label": "Select all rows" },
-          }}
+    <div>
+      <DetailsList items={currentItems} columns={columns} setKey="set" />;
+      <div>
+        <PrimaryButton onClick={handlePrev} disabled={currentPage === 1}>
+          Prev
+        </PrimaryButton>
+        <span>{`${currentPage} of ${totalPages}`}</span>
+        <PrimaryButton
+          onClick={handleNext}
+          disabled={currentPage === totalPages}
         >
-          {({ renderHeaderCell }) => (
-            <DataGridHeaderCell>{renderHeaderCell()}</DataGridHeaderCell>
-          )}
-        </DataGridRow>
-      </DataGridHeader>
-      <DataGridBody>
-        {({ item, rowId }) => (
-          <DataGridRow
-            key={rowId}
-            selectionCell={{
-              checkboxIndicator: { "aria-label": "Select row" },
-            }}
-          >
-            {({ renderCell, columnId }) => (
-              <DataGridCell focusMode={getCellFocusMode(columnId)}>
-                {renderCell(item)}
-              </DataGridCell>
-            )}
-          </DataGridRow>
-        )}
-      </DataGridBody>
-    </DataGrid>
+          Next
+        </PrimaryButton>
+      </div>
+    </div>
   );
 };
+
+export default DataGrid;

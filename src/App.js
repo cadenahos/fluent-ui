@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import LoginModal from "./Components/Login";
-import { MyGrid } from "./Components/Grid";
-import About from "./Pages/About";
 import Home from "./Pages/Home";
+import Dashboard from "./Components/Dashboard";
 import { AuthProvider } from "./hooks/useUser";
+import About from "./Pages/About";
 
 // import Footer from "./Footer";
 function App() {
@@ -24,6 +24,7 @@ function App() {
               </>
             }
           />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <LoginModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       </AuthProvider>

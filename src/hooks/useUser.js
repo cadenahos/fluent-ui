@@ -7,14 +7,10 @@ const AuthContext = createContext(null);
 // Create a provider component for the authentication context
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
-  const login = (credentials) => {
-    const token = "123456789"; // Replace with your token
-    if (credentials.username === "pedro" && credentials.password === "123") {
-      setAuth(true);
-      Navigate("/dashboard"); // Redirect to the home page
-    }
+  const login = () => {
+    setAuth(true);
+    Navigate("/dashboard"); // Redirect to the home page
   };
-
   // Logout function
   const logout = () => {
     setAuth(false);
