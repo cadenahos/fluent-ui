@@ -8,6 +8,7 @@ import {
   DefaultButton,
   ImageFit,
 } from "@fluentui/react";
+import EditForm from "./Forms/EditUser";
 
 // Sample data
 const initialItems = Array.from({ length: 50 }, (_, i) => ({
@@ -28,8 +29,11 @@ const DataGrid = () => {
 
   const [items, setItems] = React.useState(initialItems); // Add this line
   const [hideDialog, setHideDialog] = React.useState(true);
+  const [selectedItem, setSelectedItem] = React.useState(null); // Add this line
 
-  const toggleHideDialog = () => {};
+  const toggleHideDialog = () => {
+    setHideDialog(!hideDialog);
+  };
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
@@ -46,12 +50,28 @@ const DataGrid = () => {
 
   const handleEdit = (item) => {
     setHideDialog(!hideDialog);
+    setSelectedItem(item);
   };
 
   const handleDelete = (item) => {
     debugger;
     const updatedItems = items.filter((i) => i !== item);
     setItems(updatedItems);
+  };
+  const handleSubmit = ({ target }) => {
+    debugger;
+    const updatedItems = items.map((item) => {
+      if (item.accountNumber === selectedItem.accountNumber) {
+        // Update the item with the edited values
+        return {
+          ...item,
+          // Add your updated properties here
+        };
+      }
+      return item;
+    });
+    setItems(updatedItems);
+    setHideDialog(true);
   };
   const columns = [
     {
@@ -143,17 +163,19 @@ const DataGrid = () => {
         onDismiss={toggleHideDialog}
         dialogContentProps={{
           type: DialogType.normal,
-          title: "Edit Dialog",
+          title: "Edit Account Information",
         }}
         modalProps={{
           isBlocking: false,
         }}
       >
-        {/* Add your edit form here */}
-        <DialogFooter>
-          <PrimaryButton onClick={handleEdit} text="Save" />
-          <DefaultButton onClick={handleEdit} text="Cancel" />
-        </DialogFooter>
+        <form onSubmit={handleSubmit}>
+          <EditForm item={selectedItem} />
+          <DialogFooter>
+            <PrimaryButton type="submit" text="Save" />
+            <DefaultButton onClick={toggleHideDialog} text="Cancel" />
+          </DialogFooter>
+        </form>
       </Dialog>
     </div>
   );

@@ -3,6 +3,7 @@ import { CommandBar } from "@fluentui/react";
 import { initializeIcons } from "@uifabric/icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useUser";
+import UserPersona from "./UserPersona";
 
 // Initialize icons in case you haven't done it yet
 initializeIcons();
@@ -26,9 +27,9 @@ const Navbar = ({ setIsModalOpen }) => {
   ];
   const AuthItems = [
     {
-      key: "home",
-      text: "Dashboard",
-      iconProps: { iconName: "Home" },
+      key: "Inbox",
+      text: "Inbox",
+      iconProps: { iconName: "Inbox" },
       // Use Link component for navigation
       onClick: () => navigate("/dashboard"),
     },
@@ -37,9 +38,14 @@ const Navbar = ({ setIsModalOpen }) => {
     setAuth(false);
     navigate("/");
   };
+
   const farItems = (setIsModalOpen, setAuth, auth) => {
     if (auth) {
       return [
+        {
+          key: "persona",
+          onRender: () => <UserPersona />,
+        },
         {
           key: "logout",
           text: "Logout",

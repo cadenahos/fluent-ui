@@ -6,6 +6,7 @@ import {
   Caption1,
   shorthands,
   Image,
+  tokens,
 } from "@fluentui/react-components";
 import { ArrowReplyRegular } from "@fluentui/react-icons";
 import { PrimaryButton } from "@fluentui/react";
@@ -40,7 +41,7 @@ const MyCard = () => {
         }
       />
 
-      <CardPreview>
+      <CardPreview size="medium">
         <Image
           fit="contain"
           src="https://afgiib.com/wp-content/uploads/2024/01/World-Bank-1024x570-1-900x313.jpeg"
