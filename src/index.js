@@ -5,6 +5,12 @@ import { ThemeProvider, createTheme, FontSizes } from "@fluentui/react";
 import { AuthProvider } from "./hooks/useUser";
 // Define your color palette
 const myTheme = createTheme({
+  defaultFontStyle: { fontFamily: "Nunito, sans-serif" },
+  fonts: {
+    medium: {
+      fontFamily: "Nunito, sans-serif",
+    },
+  },
   palette: {
     themePrimary: "#008080",
     themeLighterAlt: "#f0fbfb",
