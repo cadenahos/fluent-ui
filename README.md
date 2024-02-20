@@ -14,6 +14,6 @@ Before you begin, ensure you have met the following requirements:
 To install Company Webpage, follow these steps:
 
 ```bash
-git clone https://github.com/yourusername/company-webpage.git
-cd company-webpage
+git clone https://github.com/cadenahos/fluent-ui
+cd fluent-ui
 npm install
