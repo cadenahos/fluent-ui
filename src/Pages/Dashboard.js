@@ -1,10 +1,10 @@
 import React from "react";
-import MyGrid from "./Grid";
+import { DataGrid } from "../Components/Grid";
 
 export default function Dashboard() {
   return (
     <div>
-      <MyGrid />
+      <DataGrid />
     </div>
   );
 }
