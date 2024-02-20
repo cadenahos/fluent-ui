@@ -11,6 +11,7 @@ const useClasses = makeStyles({
   textContainer: {
     paddingLeft: tokens.spacingVerticalS,
     paddingRight: tokens.spacingVerticalS,
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
   },
   title: {
     fontSize: "3em",
