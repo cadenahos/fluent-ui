@@ -6,7 +6,6 @@ import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
 import About from "./Pages/About";
 
-// import Footer from "./Footer";
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (

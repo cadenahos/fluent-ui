@@ -1,5 +1,5 @@
 import { Stack, Text } from "@fluentui/react";
-import { makeStyles, tokens, shorthands } from "@fluentui/react-components";
+import { makeStyles, tokens } from "@fluentui/react-components";
 
 const useClasses = makeStyles({
   hero: {

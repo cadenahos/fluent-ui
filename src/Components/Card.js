@@ -4,12 +4,10 @@ import {
   makeStyles,
   Body1,
   Caption1,
-  Button,
   shorthands,
-  tokens,
   Image,
 } from "@fluentui/react-components";
-import { ArrowReplyRegular, ShareRegular } from "@fluentui/react-icons";
+import { ArrowReplyRegular } from "@fluentui/react-icons";
 import { PrimaryButton } from "@fluentui/react";
 import {
   Card,
