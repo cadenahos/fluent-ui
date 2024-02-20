@@ -25,7 +25,7 @@ const Navbar = ({ setIsModalOpen }) => {
     },
     {
       key: "home",
-      text: "Home",
+      text: "Dashboard",
       iconProps: { iconName: "Home" },
       // Use Link component for navigation
       onClick: () => navigate("/dashboard"),
