@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 // Create a context for the authentication state
 export const AuthContext = createContext(null);
@@ -10,10 +10,13 @@ export const AuthProvider = ({ children }) => {
   // The value provided will be the current auth state and a setter function
 
   return (
-    <AuthContext.Provider value={auth} setAuth={setAuth}>
+    <AuthContext.Provider value={{ auth, setAuth }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
 // Create a hook that uses the authentication context
+export const useAuth = () => {
+  return useContext(AuthContext);
+};

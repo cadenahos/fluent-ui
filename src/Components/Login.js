@@ -6,13 +6,20 @@ import {
   DefaultButton,
   TextField,
 } from "@fluentui/react";
+import { useAuth } from "../hooks/useUser";
+import { useNavigate } from "react-router";
 export default function LoginModal({ setIsModalOpen, isModalOpen }) {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const { setAuth } = useAuth();
   const handleUsernameChange = (event) => setUsername(event.target.value);
   const handlePasswordChange = (event) => setPassword(event.target.value);
-
+  const LoginIn = () => {
+    setAuth(true);
+    navigate("/dashboard");
+    setIsModalOpen(false);
+  };
   return (
     <>
       <Dialog
@@ -34,10 +41,7 @@ export default function LoginModal({ setIsModalOpen, isModalOpen }) {
           onChange={handlePasswordChange}
         />
         <DialogFooter>
-          <PrimaryButton
-            onClick={() => console.log("Login clicked")}
-            text="Login"
-          />
+          <PrimaryButton onClick={() => LoginIn()} text="Login" />
           <DefaultButton onClick={() => setIsModalOpen(false)} text="Cancel" />
         </DialogFooter>
       </Dialog>
