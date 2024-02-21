@@ -145,12 +145,13 @@ const DataGrid = () => {
   ];
   return (
     <div>
-      <DetailsList items={currentItems} columns={columns} setKey="set" />;
-      <div>
+      <DetailsList items={currentItems} columns={columns} setKey="set" />
+      <div style={{ marginTop: "6px" }}>
         <PrimaryButton onClick={handlePrev} disabled={currentPage === 1}>
           Prev
         </PrimaryButton>
         <span>{`${currentPage} of ${totalPages}`}</span>
+
         <PrimaryButton
           onClick={handleNext}
           disabled={currentPage === totalPages}

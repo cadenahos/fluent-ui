@@ -17,7 +17,7 @@ export default function LoginModal({ setIsModalOpen, isModalOpen }) {
   const handlePasswordChange = (event) => setPassword(event.target.value);
   const LoginIn = () => {
     setAuth(true);
-    navigate("/dashboard");
+    navigate("/inbox");
     setIsModalOpen(false);
   };
   return (

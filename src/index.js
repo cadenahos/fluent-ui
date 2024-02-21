@@ -35,12 +35,6 @@ const myTheme = createTheme({
     black: "#1d1d1d",
     white: "#fff",
   },
-  fonts: {
-    medium: {
-      fontFamily: "Lato, sans-serif",
-      fontSize: FontSizes.medium,
-    },
-  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

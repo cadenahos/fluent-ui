@@ -31,7 +31,7 @@ const Navbar = ({ setIsModalOpen }) => {
       text: "Inbox",
       iconProps: { iconName: "Inbox" },
       // Use Link component for navigation
-      onClick: () => navigate("/dashboard"),
+      onClick: () => navigate("/inbox"),
     },
   ];
   const logOut = () => {

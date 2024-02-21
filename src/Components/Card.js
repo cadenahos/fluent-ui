@@ -50,9 +50,9 @@ const MyCard = () => {
       </CardPreview>
 
       <CardFooter>
-        <PrimaryButton icon={<ArrowReplyRegular fontSize={16} />}>
+        {/* <PrimaryButton icon={<ArrowReplyRegular fontSize={16} />}>
           Page
-        </PrimaryButton>
+        </PrimaryButton> */}
       </CardFooter>
     </Card>
   );
