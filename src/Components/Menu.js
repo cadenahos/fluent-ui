@@ -8,11 +8,13 @@ const useClasses = makeStyles({
   Nav: {
     width: "200px",
     height: "88vh ",
+    backgroundColor: "#008080",
   },
 });
 const Menu = () => {
   const classes = useClasses();
   const navigate = useNavigate();
+  const theme = useTheme();
   const navLinkGroups = [
     {
       links: [
@@ -25,6 +27,7 @@ const Menu = () => {
             styles: {
               root: {
                 fontSize: 20,
+                color: theme.palette.white,
               },
             },
           },
@@ -37,6 +40,7 @@ const Menu = () => {
             iconName: "BIDashboard",
             styles: {
               root: {
+                color: theme.palette.white,
                 fontSize: 20,
               },
             },
@@ -47,17 +51,12 @@ const Menu = () => {
       ],
     },
   ];
-  const theme = useTheme();
-  const themePrimaryColor = theme.palette.themePrimary;
-  React.useEffect(() => {
-    console.log(themePrimaryColor);
-  }, []);
+
   return (
     <Nav
       groups={navLinkGroups}
       className={classes.Nav}
       onLinkClick={(event, element) => navigate(element.link)}
-      styles={{ backgroundColor: themePrimaryColor }}
     />
   );
 };
