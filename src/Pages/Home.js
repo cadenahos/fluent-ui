@@ -1,11 +1,6 @@
 import React from "react";
 import { Stack, Text } from "@fluentui/react";
-import {
-  makeStyles,
-  shorthands,
-  Divider,
-  tokens,
-} from "@fluentui/react-components";
+import { makeStyles, shorthands, tokens } from "@fluentui/react-components";
 import Hero from "../Components/Hero";
 import MyCard from "../Components/Card";
 const useStyles = makeStyles({

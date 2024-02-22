@@ -1,20 +1,19 @@
 import { Nav } from "@fluentui/react";
 import { makeStyles } from "@fluentui/react-components";
-import { useTheme } from "@fluentui/react";
+import { getTheme } from "@fluentui/react";
 import { useNavigate } from "react-router-dom";
-import React from "react";
 
+const theme = getTheme();
 const useClasses = makeStyles({
   Nav: {
-    width: "200px",
     height: "88vh ",
-    backgroundColor: "#008080",
+    width: "150px",
+    backgroundColor: theme.palette.neutralLighter,
   },
 });
 const Menu = () => {
   const classes = useClasses();
   const navigate = useNavigate();
-  const theme = useTheme();
   const navLinkGroups = [
     {
       links: [
@@ -27,7 +26,6 @@ const Menu = () => {
             styles: {
               root: {
                 fontSize: 20,
-                color: theme.palette.white,
               },
             },
           },
@@ -40,7 +38,6 @@ const Menu = () => {
             iconName: "BIDashboard",
             styles: {
               root: {
-                color: theme.palette.white,
                 fontSize: 20,
               },
             },

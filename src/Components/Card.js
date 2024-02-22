@@ -4,14 +4,15 @@ import {
   DocumentCard,
   DocumentCardPreview,
   DocumentCardTitle,
-  Text,
+  getTheme,
 } from "@fluentui/react";
-
+const theme = getTheme();
 const useStyles = makeStyles({
   card: {
     ...shorthands.margin("5px"),
     width: "318px",
     maxWidth: "318px",
+    boxShadow: theme.effects.elevation4,
   },
 });
 
