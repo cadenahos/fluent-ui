@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { ThemeProvider, createTheme, FontSizes } from "@fluentui/react";
+import { ThemeProvider, createTheme } from "@fluentui/react";
 import { AuthProvider } from "./hooks/useUser";
 // Define your color palette
 const myTheme = createTheme({

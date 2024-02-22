@@ -1,60 +1,36 @@
 import * as React from "react";
-
+import { makeStyles, shorthands } from "@fluentui/react-components";
 import {
-  makeStyles,
-  Body1,
-  Caption1,
-  shorthands,
-  Image,
-  tokens,
-} from "@fluentui/react-components";
-import { ArrowReplyRegular } from "@fluentui/react-icons";
-import { PrimaryButton } from "@fluentui/react";
-import {
-  Card,
-  CardFooter,
-  CardHeader,
-  CardPreview,
-} from "@fluentui/react-components";
+  DocumentCard,
+  DocumentCardPreview,
+  DocumentCardTitle,
+  Text,
+} from "@fluentui/react";
 
 const useStyles = makeStyles({
   card: {
     ...shorthands.margin("5px"),
-    width: "520px",
-    maxWidth: "520px",
+    width: "318px",
+    maxWidth: "318px",
   },
 });
 
-const MyCard = () => {
+const MyCard = ({ title, image, description }) => {
   const styles = useStyles();
 
   return (
-    <Card className={styles.card}>
-      <CardHeader
-        header={
-          <Body1>
-            <b>Bank BNC</b> The best bank in the world
-          </Body1>
-        }
-        description={
-          <Caption1>This is the service we provide to our customers.</Caption1>
-        }
+    <DocumentCard className={styles.card}>
+      <DocumentCardPreview
+        previewImages={[
+          {
+            previewImageSrc: `${image}`,
+            width: 318,
+            height: 196,
+          },
+        ]}
       />
-
-      <CardPreview size="medium">
-        <Image
-          fit="contain"
-          src="https://afgiib.com/wp-content/uploads/2024/01/World-Bank-1024x570-1-900x313.jpeg"
-          alt="Preview of a Word document: About Us - Overview"
-        />
-      </CardPreview>
-
-      <CardFooter>
-        {/* <PrimaryButton icon={<ArrowReplyRegular fontSize={16} />}>
-          Page
-        </PrimaryButton> */}
-      </CardFooter>
-    </Card>
+      <DocumentCardTitle title={title} shouldTruncate />
+    </DocumentCard>
   );
 };
 

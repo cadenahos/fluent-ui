@@ -5,7 +5,8 @@ import LoginModal from "./Components/Login";
 import Home from "./Pages/Home";
 import Inbox from "./Pages/Inbox";
 import About from "./Pages/About";
-
+import Dashboard from "./Pages/Dashboard";
+import Account from "./Pages/Account";
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
@@ -21,7 +22,10 @@ function App() {
             </>
           }
         />
-        <Route path="/inbox" element={<Inbox />}></Route>
+        <Route path="/account" element={<Account />}>
+          <Route path="inbox" element={<Inbox />}></Route>
+          <Route path="dashboard" element={<Dashboard />}></Route>
+        </Route>
       </Routes>
       <LoginModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </Router>

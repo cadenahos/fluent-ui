@@ -25,15 +25,6 @@ const Navbar = ({ setIsModalOpen }) => {
       onClick: () => navigate("/about"),
     },
   ];
-  const AuthItems = [
-    {
-      key: "Inbox",
-      text: "Inbox",
-      iconProps: { iconName: "Inbox" },
-      // Use Link component for navigation
-      onClick: () => navigate("/inbox"),
-    },
-  ];
   const logOut = () => {
     setAuth(false);
     navigate("/");
@@ -68,7 +59,7 @@ const Navbar = ({ setIsModalOpen }) => {
   return (
     <div>
       <CommandBar
-        items={auth ? AuthItems : items}
+        items={auth ? [] : items}
         farItems={farItems(setIsModalOpen, setAuth, auth)}
         ariaLabel="Use left and right arrow keys to navigate between commands"
       />

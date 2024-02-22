@@ -54,7 +54,6 @@ const DataGrid = () => {
   };
 
   const handleDelete = (item) => {
-    debugger;
     const updatedItems = items.filter((i) => i !== item);
     setItems(updatedItems);
   };

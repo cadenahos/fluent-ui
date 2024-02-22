@@ -49,9 +49,44 @@ const useStyles = makeStyles({
     paddingTop: tokens.spacingVerticalL,
   },
 });
+const cardItems = [
+  {
+    title: "inventory management",
+    previewImages:
+      "https://images.pexels.com/photos/6684765/pexels-photo-6684765.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Manage your inventory efficiently and never run out of stock.",
+  },
+  {
+    title: "customer relationship management",
+    previewImages:
+      "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Build strong relationships with your customers and improve customer satisfaction.",
+  },
+  {
+    title: "sales tracking",
+    previewImages:
+      "https://images.pexels.com/photos/4968631/pexels-photo-4968631.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description: "Track your sales and identify opportunities for growth.",
+  },
+  {
+    title: "financial management",
+    previewImages:
+      "https://images.pexels.com/photos/15189548/pexels-photo-15189548/free-photo-of-gente-oficina-trabajando-sentado.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Manage your finances effectively and ensure the financial health of your business.",
+  },
+  {
+    title: "human resources",
+    previewImages:
+      "https://images.pexels.com/photos/6585028/pexels-photo-6585028.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Manage your employees effectively and create a positive work environment.",
+  },
+];
 function Home() {
   const styles = useStyles();
-  const gridItems = Array(4).fill(0); // Replace 6 with the number of items you want
 
   return (
     <div className="App">
@@ -79,9 +114,13 @@ function Home() {
         </div>
       </div> */}
       <Stack horizontal wrap>
-        {gridItems.map((_, index) => (
+        {cardItems.map((item, index) => (
           <Stack.Item key={index} className={styles.cardContainer}>
-            <MyCard />
+            <MyCard
+              title={item.title}
+              image={item.previewImages}
+              description={item.description}
+            />
           </Stack.Item>
         ))}
       </Stack>
